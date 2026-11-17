@@ -1,0 +1,31 @@
+---
+description: SRT.Core.RuntimeSettings — follow package AI_RULES when registering or changing runtime settings
+alwaysApply: false
+globs: "**/*RuntimeSettings*/**/*","**/SRT.Core.RuntimeSettings*/**/*","**/docs/SRT.Core.RuntimeSettings.*"
+---
+
+# SRT.Core.RuntimeSettings (Cursor rule template)
+
+This file is an **install template**. Copy it to the consumer project’s `.cursor/rules/` and keep the package-prefixed filename:
+
+`SRT.Core.RuntimeSettings.CURSOR_RULE.mdc`
+
+## Mandatory
+
+Before using or modifying this package, follow:
+
+- `docs/SRT.Core.RuntimeSettings.AI_RULES.md` (canonical)
+- `docs/SRT.Core.RuntimeSettings.API_REFERENCE.md`
+- `docs/SRT.Core.RuntimeSettings.COOKBOOK.md` when wiring a service
+
+## Working rule
+
+Read docs first. Do not invent APIs. If ambiguous, inspect the code and update the docs.
+
+## Hard constraints (summary)
+
+- Every registered key has an initial value in appsettings
+- Read a registered key from `IOptionsMonitor` or `IRuntimeSettings` each time, unless `requiresRestart: true`
+- Do not register passwords, tokens, or connection strings
+- Call `SRT_AddRuntimeSettings` from the service, not from a plugin, so the source exists before the service reads configuration
+- Do not call `SRT_AddGeneralConfig` for `RuntimeSettingsDbContext` yourself

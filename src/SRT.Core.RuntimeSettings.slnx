@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SRT.Core.RuntimeSettings/SRT.Core.RuntimeSettings.csproj" />
+  <Project Path="SRT.Core.RuntimeSettings.Tests/SRT.Core.RuntimeSettings.Tests.csproj" />
+</Solution>
